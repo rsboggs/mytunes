@@ -24,7 +24,8 @@
     <script>
       $(function() {
         // set up model objects
-        var library = new Songs(songData);
+        var library = new Songs(songData); //songData [{}, {}, {}]
+        // songQueue? starts as empty array and will be filled with library[i]
         var app = new AppModel({library: library});
 
         // build a view for the top level of the whole app
@@ -36,3 +37,10 @@
     </script>
   </body>
 </html>
+
+<!-- 
+LibraryEntryView 
+   @click: notify its Model? (what's its model?)
+      that model will send out a signal to Library(collection)
+      LibraryView will go thru AppView(or model?) to get songQ 
+-->
