@@ -9,24 +9,25 @@ var SongQueue = Songs.extend({
       }
     });
 
+    //if first song is dequeued need to call playFirst
     this.on('dequeue', function(song) {
-      this.remove(song);      
+      if (song.attributes.title === this.models[0].attributes.title){
+        this.remove(song);
+        this.playFirst();
+      } else {
+        this.remove(song);      
+      }
     }, this);
 
     this.on('ended', function(song) {
-      // console.log("IN SONG QUEUE: ", this);
       this.remove(song);      
     }, this);
-
-    // this.on('enqueue', function() {this.playFirst(); });
     
 
   },
 
   playFirst: function(){
-    // console.log("THIS[0]: ", this.models)
     this.models[0].play();
-
   }
 
 });
