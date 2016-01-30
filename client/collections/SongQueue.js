@@ -24,12 +24,9 @@ var SongQueue = Songs.extend({
   },
 
   playFirst: function(){
-    console.log("playFirst is called!")
-  },
+    // console.log("THIS[0]: ", this.models)
+    this.models[0].play();
 
-  nextSong: function(){
-    // console.log("nextSong is called!")
-  },
-
+  }
 
 });
